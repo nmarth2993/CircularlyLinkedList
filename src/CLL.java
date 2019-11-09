@@ -1,10 +1,10 @@
 public class CLL {
 
     class Node {
-        Integer data;
+        Object data;
         Node next;
 
-        public Node(Integer data) {
+        public Node(Object data) {
             this.data = data;
         }
     }
@@ -12,7 +12,7 @@ public class CLL {
     public Node head = null;
     public Node tail = null;
 
-    public void add(Integer data) {
+    public void add(Object data) {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
@@ -38,10 +38,10 @@ public class CLL {
     }
 
     public static void main(String[] args) {
-        CLL circular = new CLL();
-        circular.add(1);
-        circular.add(2);
-        circular.add(99);
-        circular.printElements();
+//         CLL circular = new CLL();
+//         circular.add(1);
+//         circular.add(2);
+//         circular.add(99);
+//         circular.printElements();
     }
 }
