@@ -1,23 +1,34 @@
-public class CLL {
+import java.util.Iterator;
+
+public class CLL implements Iterator {
 
     class Node {
-        Integer data;
+        Object data;
         Node next;
 
-        public Node(Integer data) {
+        public Node(Object data) {
             this.data = data;
         }
     }
 
-    public Node head = null;
-    public Node tail = null;
+    public Node head;
+    public Node tail;
 
-    public void add(Integer data) {
+    public Node currentPos;
+
+    public CLL() {
+        head = null;
+        tail = null;
+        currentPos = null;
+    }
+
+    public void add(Object data) {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
             tail = newNode;
             newNode.next = head;
+            currentPos = head;
         } else {
             tail.next = newNode;
             tail = newNode;
@@ -37,11 +48,26 @@ public class CLL {
         }
     }
 
+    @Override
+    public boolean hasNext() {
+        return currentPos != null && currentPos.next != null;
+    }
+
+    @Override
+    public Object next() {
+        currentPos = currentPos.next; //move up one, 'dispense' previous
+        return currentPos.data;
+    }
+
     public static void main(String[] args) {
         CLL circular = new CLL();
         circular.add(1);
         circular.add(2);
         circular.add(99);
-        circular.printElements();
+        // circular.printElements();
+
+        while (circular.hasNext()) {
+            System.out.println(circular.next());
+        }
     }
 }
