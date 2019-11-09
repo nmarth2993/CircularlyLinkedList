@@ -1,10 +1,6 @@
 import java.util.Iterator;
 
-<<<<<<< HEAD
 public class CLL implements Iterator<Object> {
-=======
-public class CLL implements Iterator {
->>>>>>> ea89e556ab2b618499036cbec6f3c620f66ad4db
 
     class Node {
         Object data;
